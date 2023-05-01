@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+loopgpt.egg-info/PKG-INFO
+loopgpt.egg-info/SOURCES.txt
+loopgpt.egg-info/dependency_links.txt
+loopgpt.egg-info/entry_points.txt
+loopgpt.egg-info/requires.txt
+loopgpt.egg-info/top_level.txt

@@ -1,0 +1,296 @@
+<html>
+<head>
+    <title>TurboGPT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/output.css" rel="stylesheet">
+</head>
+<body class="w-screen h-auto mt-20 flex flex-col justify-center items-center bg-slate-800">
+    <div style="display: flex;flex-direction: column;position: fixed;top: 40;right: 20px;">
+        <div
+            class="notification-banner pointer-events-auto mx-auto hidden w-96 max-w-full rounded-lg bg-white bg-clip-padding text-sm shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden dark:bg-neutral-600"
+            id="static-example"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-te-autohide="false"
+            data-te-toast-init
+            style="margin-bottom:10px; opacity: 0; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; -o-transition: 0.4s;"
+            data-te-toast-show>
+            <div
+                class="flex items-center justify-between rounded-t-lg border-b-2 border-neutral-100 border-opacity-100 bg-white bg-clip-padding px-4 pb-2 pt-2.5 dark:border-opacity-50 dark:bg-neutral-600">
+                <p class="font-bold text-neutral-500 dark:text-neutral-200">
+                TurboGPT
+                </p>
+                <div class="flex items-center">
+                <button
+                    type="button"
+                    class="ml-2 close-notification box-content rounded-none border-none opacity-80 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    data-te-toast-dismiss
+                    aria-label="Close">
+                    <span
+                    class="w-[1em] focus:opacity-100 disabled:pointer-events-none disabled:select-none disabled:opacity-25 [&.disabled]:pointer-events-none [&.disabled]:select-none [&.disabled]:opacity-25">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-6 w-6">
+                        <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    </span>
+                </button>
+                </div>
+            </div>
+            <div
+                class="notification break-words rounded-b-lg bg-white px-4 py-4 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
+                Static Example
+            </div>
+        </div>
+        <div
+            class="err-notification-banner pointer-events-auto mx-auto hidden w-96 max-w-full rounded-lg bg-white bg-clip-padding text-sm shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden dark:bg-neutral-600"
+            id="static-example"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-te-autohide="false"
+            data-te-toast-init
+            style="opacity: 0; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; -o-transition: 0.4s;"
+            data-te-toast-show>
+            <div
+                class="flex items-center justify-between rounded-t-lg border-b-2 border-neutral-100 border-opacity-100 bg-white bg-clip-padding px-4 pb-2 pt-2.5 dark:border-opacity-50 dark:bg-neutral-600">
+                <p class="font-bold text-neutral-500 dark:text-neutral-200">
+                TurboGPT
+                </p>
+                <div class="flex items-center">
+                <button
+                    type="button"
+                    class="ml-2 close-err-notification box-content rounded-none border-none opacity-80 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    data-te-toast-dismiss
+                    aria-label="Close">
+                    <span
+                    class="w-[1em] focus:opacity-100 disabled:pointer-events-none disabled:select-none disabled:opacity-25 [&.disabled]:pointer-events-none [&.disabled]:select-none [&.disabled]:opacity-25">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-6 w-6">
+                        <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    </span>
+                </button>
+                </div>
+            </div>
+            <div
+                class="err-notification break-words rounded-b-lg bg-white px-4 py-4 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
+                Static Example
+            </div>
+        </div>
+    </div>
+    <h2 class="text-3xl mb-3 font-bold text-white">TurboGPT</h2>
+    <div class="w-10/12 sm:w-1/2 p-5 shadow-md rounded-lg bg-slate-700">
+        <div>
+            <label for="gpt-name" class="block mb-2 text-sm font-medium text-white">Name your GPT Agent</label>
+            <input type="text" id="gpt-name" placeholder="ResearchGPT" class="bg-slate-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"required>
+        </div>
+        <div>
+            <label for="gpt-key" class="block mb-2 text-sm font-medium text-white">Enter your OPENAI_API_KEY</label>
+            <input type="text" id="gpt-key" placeholder="sk-..." class="bg-slate-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+        </div>
+        <div>
+            <label for="gpt-description" class="block mb-2 mt-3 text-sm font-medium text-white">Give your agent a role</label>
+            <input type="text" id="gpt-description" placeholder="an AI assistant that researches and finds the best tech products" class="bg-slate-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+        </div>
+        <label for="gpt-description" class="block mb-2 mt-3 text-sm font-medium text-white">List up to 5 goals below:</label>
+        <div>
+            <div class="editor-container w-full mb-4 rounded-lg bg-white border border-gray-200 rounded-lg bg-slate-500">
+                <div class="px-4 py-2 bg-slate-500 rounded-lg">
+                    <label for="editor" class="sr-only">Goal</label>
+                    <textarea id="editor" rows="3" class="text-white resize-none block w-full px-0 text-sm text-white bg-slate-500 border-0 focus:ring-0" placeholder="Analyze specs, prices and reviews to find the top 5 best headphones." required></textarea>
+                </div>
+            </div>
+        </div>
+        <div onclick="createNewGoal()" class="w-full mt-3 mb-4 pl-2.5 bg-slate-500 border-2 border-slate-700 cursor-pointer border-dashed rounded-full">
+            <p class="text-sm text-white p-2 text-center">Add new goal</p>
+        </div>
+        <button type="submit" 
+            class="start-gpt
+                inline-flex items-center px-5 py-2.5 text-sm font-medium
+                text-center text-white bg-[#D9CD86] rounded-lg focus:ring-4 
+                focus:ring-[#D9CD86] hover:bg-[#D9CD86]
+            ">
+            Submit
+        </button>
+    </div>
+
+    <div class="output w-10/12 sm:w-1/2 p-5 mt-5 shadow-md rounded-lg bg-slate-700">
+        <pre class="outtext text-white" style="white-space: pre-wrap;"></p>
+    </div>
+
+    <button 
+        class="kill-docker mt-5 mb-10
+            inline-flex items-center px-5 py-2.5 text-sm font-medium
+            text-center text-white bg-red-700 rounded-lg focus:ring-4 
+            focus:ring-red-200 hover:bg-red-800
+        ">
+        Stop
+    </button>
+
+
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script>
+        // url parameter setup
+        const url = new URL(location.href)
+        let search_params = new URLSearchParams(url.search)
+        const room = search_params.get('room')
+
+        let start_gpt = document.querySelector('.start-gpt')
+        let editor = document.querySelector('#editor')
+        let output = document.querySelector('.output')
+        let outtext = document.querySelector('.outtext')
+        let killDocker = document.querySelector('.kill-docker')
+        let notification = document.querySelector('.notification')
+        let notificationBanner = document.querySelector('.notification-banner')
+        let closeNotification = document.querySelector('.close-notification')
+        let errNotification = document.querySelector('.err-notification')
+        let errNotificationBanner = document.querySelector('.err-notification-banner')
+        let closeErrNotification = document.querySelector('.close-err-notification')
+
+        let container_id
+
+        let socket_server = 'http://192.168.0.222:3000'
+        const socket = io(socket_server)
+        socket.on("connect", () => {
+            console.log(socket.id);
+            console.log('connect listener found')
+			socket.emit('join_room', {
+                room: room
+            })
+            console.log('emit join_room sent')
+        })
+
+        socket.on("join_room_announcement", (data) => {
+            console.log(`[✅] Room: ${data["room"]} was joined successfully.`)
+        })
+
+        socket.on("disconnect", () => {
+            socket.emit('left_room', {
+                room: room
+            })
+        })
+
+        socket.on('docker_container_started', (data) => {
+            console.log(data)
+            container_id = data.container_id
+            notificationBanner.style.opacity = '1'
+            notification.textContent = data.message
+        })
+
+        socket.on("gpt_response", (data) => {
+            container_id = data.container_id
+            console.log(data)
+            outtext.textContent = `${outtext.textContent}\n${String(data.message)}`
+            if (data.message.includes('command: task_complete')) {
+                socket.emit('kill_container', {
+                    room: room,
+                    container_id: container_id
+                })
+                errNotificationBanner.style.opacity = '1'
+                errNotification.textContent = 'Stopping container, please wait..'
+            }
+        })
+
+        socket.on('kill_response', (data) => {
+            notificationBanner.style.opacity = '1'
+            notification.textContent = data.message
+            start_gpt.textContent = 'Submit'
+            start_gpt.style.backgroundColor = 'rgb(217 205 134 / var(--tw-bg-opacity))'
+            start_gpt.disabled = false
+        })
+
+        socket.on('error', (data) => {
+            notificationBanner.style.opacity = '1'
+            notification.textContent = data.message
+
+            if (data.route == 'query_gpt') {
+                start_gpt.textContent = 'Submit'
+                start_gpt.style.backgroundColor = 'rgb(217 205 134 / var(--tw-bg-opacity))'
+                start_gpt.disabled = false
+            } else if (data.route == 'kill_container') {
+                errNotificationBanner.style.opacity = '1'
+                errNotification.textContent = `Container failed to stop. Err: ${data.message}`
+            }
+        })
+
+
+        killDocker.onclick = (() => {
+            socket.emit('kill_container', {
+                room: room,
+                container_id: container_id
+            })
+            errNotificationBanner.style.opacity = '1'
+            errNotification.textContent = 'Stopping container, please wait..'
+        })
+
+        closeNotification.onclick = (() => {
+            notificationBanner.style.opacity = '0'
+        })
+        closeErrNotification.onclick = (() => {
+            errNotificationBanner.style.opacity = '0'
+        })
+
+        editor.oninput = ((e) => {
+            if (e.target.value.trim().length > 0) {
+                start_gpt.classList.remove('hidden')
+            } else {
+                start_gpt.classList.add('hidden')
+            }
+        })
+
+        start_gpt.onclick = (() => {
+            start_gpt.style.backgroundColor = '#c1c1c1'
+            start_gpt.textContent = 'Loading..'
+            start_gpt.disabled = true
+            outtext.textContent = ''
+
+            goals = []
+            document.querySelectorAll('.editor-container').forEach(c => {
+            if (c.querySelector('#editor').value.trim().length < 1 || goals.length >= 5) { return } 
+                content = c.querySelector('#editor').value.trim()
+                goals.push(content)
+            })
+            console.log(goals)
+            socket.emit('query_gpt', {
+                agent_name: document.querySelector('#gpt-name').value,
+                agent_description: document.querySelector('#gpt-description').value,
+                goals: goals,
+                agent_continuous: true,
+                OPENAI_API_KEY: document.querySelector('#gpt-key').value,
+                room: room,
+                socket_server: socket_server,
+            })
+        })
+
+        let goal_containers = 1
+        const createNewGoal = () => {
+            if (goal_containers >= 5) { return }
+            let editor_container = document.querySelector('.editor-container').cloneNode(true)
+            editor_container.querySelector('#editor').value = ''
+            document.querySelector('.editor-container')
+                .parentElement.appendChild(editor_container)
+            goal_containers += 1
+        }
+
+    </script>
+</body>
+</html>

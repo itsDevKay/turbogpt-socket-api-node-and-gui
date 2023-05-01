@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>TurboGPT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/output.css" rel="stylesheet">
+</head>
+<body class="w-screen h-screen flex justify-center items-center">
+    <div class="w-1/2 flex justify-center">
+        <button class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+            Start TurboGPT
+        </button>
+    </div>
+
+    <script>
+        function uuidv4() {
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            )
+        }
+        document.querySelector('button').onclick = (() => {
+            window.location.href = `/chat.html?room=${uuidv4()}`
+        })
+    </script>
+</body>
+</html>
