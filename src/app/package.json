@@ -1,0 +1,28 @@
+{
+  "name": "turbogpt-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "vercel-build": "prisma generate && next build",
+    "prisma:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "argon2": "^0.30.3",
+    "dotenv": "^16.0.3",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.0",
+    "next": "13.3.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "prisma": "^4.13.0",
+    "tailwindcss": "^3.3.2"
+  }
+}

@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id             Int     @id @default(autoincrement())
+  first_name     String  @db.VarChar(250)
+  last_name      String  @db.VarChar(250)
+  email          String  @db.VarChar(250)
+  password       String  @db.VarChar(300)
+  openai_api_key String? @default("") @db.VarChar(300)
+
+  @@index([first_name, last_name, email], map: "first_name")
+}
