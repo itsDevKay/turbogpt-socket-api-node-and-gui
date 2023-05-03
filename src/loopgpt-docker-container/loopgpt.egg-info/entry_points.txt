@@ -1,3 +1,0 @@
-[console_scripts]
-loopgpt = loopgpt.loops.cli:main
-
